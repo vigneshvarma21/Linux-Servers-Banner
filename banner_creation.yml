@@ -6,5 +6,26 @@
   tasks:
 
       - name: Set web server banner
-        when: " '
+        when: "'Production servers' in group_names"
+        copy:
+          content:
+               *************************************************
+               *  Prodcution Server
+               *************************************************
+               dest: /etc/motd
+               owner: root
+               group: root
+               mode: '0644'
+
+       - name: Set web server banner
+        when: "'Non-Prodcution servers' in group_names"
+        copy:
+          content:
+               *************************************************
+               * Non-Prodcution Server
+               *************************************************
+               dest: /etc/motd
+               owner: root
+               group: root
+               mode: '0644'        
   
