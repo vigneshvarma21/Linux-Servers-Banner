@@ -1,1 +1,10 @@
+# create_banners.yml
+-----
+- name: Apply banners on different types of Linux servers
+  hosts: all
+  become: yes
+  tasks:
 
+      - name: Set web server banner
+        when: " '
+  
