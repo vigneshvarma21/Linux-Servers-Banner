@@ -1,5 +1,5 @@
 - name: Display PMON and Tns processes upon root login
-  hosts: your_rhel_server
+  hosts: inventory.yml
   become: true
   tasks:
     -name: Ensure PMON and TNS commands are added to root's bash profile
