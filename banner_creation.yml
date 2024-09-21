@@ -1,16 +1,15 @@
 # create_banners.yml
 -----
-- name: Apply banners on different types of Linux servers
-  hosts: inventory.yml
+- name: Add a message to /etc/motd
+  hosts: all
   become: yes
   tasks:
-
-       -name: Set web server banner
+       -name: Display banner on Linux Server
     lineinfile:
-      path: /etc/motd
-      state: present
-      create: yes
-      line:
-        *************************************************
-                 Prodcution Server
-        *************************************************
+        path: /etc/motd     
+        line:
+        "*************************************************
+                  Prodcution Server
+        *************************************************"
+        create: yes
+        
