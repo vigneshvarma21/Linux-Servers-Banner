@@ -1,1 +1,32 @@
+- name: Comment lines in snmp configuration file
+  hosts: hosts_names_file
+  become: yes
+  tasks:
+      - name: Comment lines starting with 'group'
+        lineinfile: 
+          path: /etc/snmp/snmpd.conf
+          regexp: '^group.*'
+          line: '# \0'
+          state: present
 
+     - name: Comment lines starting with 'view'
+        lineinfile: 
+          path: /etc/snmp/snmpd.conf
+          regexp: '^view.*'
+          line: '# \0'
+          state: present
+
+     - name: Comment lines starting with 'com2sec'
+        lineinfile: 
+          path: /etc/snmp/snmpd.conf
+          regexp: '^com2sec.*'
+          line: '# \0'
+          state: present
+     
+     - name: Comment lines starting with 'access'
+        lineinfile: 
+          path: /etc/snmp/snmpd.conf
+          regexp: '^access.*'
+          line: '# \0'
+          state: present
+     
